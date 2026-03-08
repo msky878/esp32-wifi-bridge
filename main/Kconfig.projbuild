@@ -1,0 +1,70 @@
+menu "ESP32 WiFi Bridge Configuration"
+
+    choice DEVICE_ROLE
+        prompt "Select Device-Role to Build"
+        default BUILD_STA2ETH
+
+        config BUILD_STA2ETH
+            bool "Primary Module (STA to Ethernet)"
+            help
+                Builds the firmware for the first module connecting to the WiFi router.
+
+        config BUILD_ETH2AP
+            bool "Secondary Module (Ethernet to AP)"
+            help
+                Builds the firmware for the secondary module broadcasting the AP.
+    endchoice
+
+    menu "Primary Module Settings"
+        depends on BUILD_STA2ETH
+
+        config PRIMARY_AP_SSID
+            string "Setup AP SSID"
+            default "espmoduleconfig"
+            help
+                The Wi-Fi name broadcasted by the primary module for initial setup.
+
+        config PRIMARY_AP_PASSWORD
+            string "Setup AP Password"
+            default "12345678"
+            help
+                The password for the setup AP - leave blank for an open network.
+
+        config BRIDGE_RECONFIGURE_BUTTON
+            int "Factory Reset Button GPIO"
+            range 0 40
+            default 39
+            help
+                The GPIO pin used to factory reset the board and restart configuration.
+    endmenu
+
+    menu "Secondary Module AP Fallback Settings"
+        depends on BUILD_ETH2AP
+        
+        config BRIDGE_WIFI_SSID
+            string "Wi-Fi SSID"
+            default "eth2ap"
+            help
+                Set the default SSID of Wi-Fi AP interface (if NVS is empty).
+                
+        config BRIDGE_WIFI_PASSWORD
+            string "Wi-Fi Password"
+            default "12345678"
+            help
+                Set the default password of Wi-Fi AP interface (if NVS is empty).
+                
+        config BRIDGE_WIFI_CHANNEL
+            int "WiFi channel"
+            range 1 13
+            default 1
+            help
+                Set the channel of Wi-Fi AP.
+                
+        config BRIDGE_MAX_STA_CONN
+            int "Maximum STA connections"
+            default 4
+            help
+                Maximum number of stations allowed to connect to the AP.
+    endmenu
+
+endmenu
