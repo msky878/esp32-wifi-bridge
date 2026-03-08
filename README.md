@@ -18,7 +18,7 @@ This project was developed as part of a Bachelor's Thesis by Miroslav Michalsky 
 The system requires at least two ESP32 modules with Ethernet capabilities (tested on the **WT32-ETH01**).
 
 1. Primary Module (`sta2eth`): Connects wirelessly to your home/source Wi-Fi router. It passes this traffic down the physical Ethernet cable.
-2. Secondary Module (`eth2ap`): Receives the internet traffic via Ethernet and broadcasts it as a new Wi-Fi Access Point for local devices to connect to[cite: 4].
+2. Secondary Module (`eth2ap`): Receives the internet traffic via Ethernet and broadcasts it as a new Wi-Fi Access Point for local devices to connect to.
 
 *(Note: The system architecture theoretically supports multiple secondary modules connected via an Ethernet switch, though it has only been explicitly tested with a 1-to-1 connection).*
 
