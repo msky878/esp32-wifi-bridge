@@ -36,8 +36,8 @@ Tested on two WT32-ETH01 modules with 1 connected device:
 ## Installation & Flashing
 
 1. Source your ESP-IDF environment:
-   ```bash
-   . $HOME/esp/esp-idf/export.sh
+    ```bash
+    /esp-idf/export.sh
 
 2. Navigate to the project folder and open the configuration menu:
     ```bash
