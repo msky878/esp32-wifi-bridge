@@ -23,9 +23,7 @@ The system requires at least two ESP32 modules with Ethernet capabilities (teste
 *(Note: The system architecture theoretically supports multiple secondary modules connected via an Ethernet switch, though it has only been explicitly tested with a 1-to-1 connection).*
 
 ## Performance
-Tested on two WT32-ETH01 modules with 1 connected device:
-* **Download:** ~17 MB/s
-* **Upload:** ~3 MB/s
+Tested on two WT32-ETH01 modules with 1 connected device: **~16 MB/s**
 
 ## Hardware & Setup Prerequisites
 
